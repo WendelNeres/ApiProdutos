@@ -16,6 +16,4 @@ public class Produto {
     private String descricao;
     @Column(nullable = false)
     private Double preco;
-
-
 }
