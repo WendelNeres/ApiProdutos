@@ -3,7 +3,6 @@ package com.github.wendel.produtosapi.domain.entities;
 import com.github.wendel.produtosapi.api.dto.ProdutoCreateDTO;
 import com.github.wendel.produtosapi.api.dto.ProdutoDTO;
 import jakarta.persistence.*;
-import lombok.*;
 
 import java.util.Objects;
 
@@ -17,10 +16,17 @@ public class Produto {
     private Long id;
     @Column(nullable = false)
     private String nome;
+
     @Column(nullable = false)
     private String descricao;
     @Column(nullable = false)
     private Double preco;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+
 
     public Produto(){
 
@@ -31,6 +37,7 @@ public class Produto {
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+
     }
 
     public Produto(ProdutoDTO produtoDTO){
