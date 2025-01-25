@@ -1,6 +1,8 @@
 package com.github.wendel.produtosapi.domain.entities;
 
 
+import com.github.wendel.produtosapi.api.dto.CategoriaCreateDTO;
+import com.github.wendel.produtosapi.api.dto.CategoriaDTO;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -31,6 +33,15 @@ public class Categoria {
     this.produto = produto;
   }
 
+  public Categoria(CategoriaCreateDTO categoriaCreateDTO){
+    this.nome = categoriaCreateDTO.getNome();
+  }
+
+  public Categoria(CategoriaDTO categoriaDTO){
+    this.id = categoriaDTO.getId();
+    this.nome = categoriaDTO.getNome();
+  }
+
 
   public Long getId() {
     return id;
@@ -48,14 +59,6 @@ public class Categoria {
     this.nome = nome;
   }
 
-  public List<Produto> getProduto() {
-    return produto;
-  }
-
-  public void setProduto(List<Produto> produto) {
-    this.produto = produto;
-  }
-
 
 
 
@@ -63,11 +66,11 @@ public class Categoria {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof Categoria categoria)) return false;
-    return Objects.equals(getId(), categoria.getId()) && Objects.equals(getNome(), categoria.getNome()) && Objects.equals(getProduto(), categoria.getProduto());
+    return Objects.equals(getId(), categoria.getId()) && Objects.equals(getNome(), categoria.getNome());
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(getId(), getNome(), getProduto());
+    return Objects.hash(getId(), getNome());
   }
 }

@@ -26,7 +26,13 @@ public class Produto {
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
     public Produto(){
 

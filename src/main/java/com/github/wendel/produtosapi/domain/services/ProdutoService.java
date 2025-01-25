@@ -29,8 +29,9 @@ public class ProdutoService {
                 .collect(Collectors.toList());
     }
 
-    public List<ProdutoDTO> findProdutoByCategoria_Nome(String nomeCategoria){
-        String categoria = nomeCategoria;
+    public List<ProdutoDTO> findProdutoByCategoria_Nome(String nome){
+
+
 
 
 
