@@ -26,6 +26,9 @@ public class ProdutoDTO {
         this.categoria = produto.getCategoria();
     }
 
+
+
+
     public long getId() {
         return id;
     }
