@@ -3,6 +3,7 @@ package com.github.wendel.produtosapi.domain.entities;
 import com.github.wendel.produtosapi.api.dto.ProdutoCreateDTO;
 import com.github.wendel.produtosapi.api.dto.ProdutoDTO;
 import jakarta.persistence.*;
+import org.hibernate.type.descriptor.java.BlobJavaType;
 
 import java.util.Objects;
 
@@ -21,6 +22,9 @@ public class Produto {
     @Column(nullable = false)
     private Double preco;
 
+    @Column(nullable = false, unique = true)
+    private String urlImagem;
+
     @ManyToOne()
     @JoinColumn(name = "categoria_nome", referencedColumnName = "nome")
     private Categoria categoria;
@@ -31,11 +35,12 @@ public class Produto {
 
     }
 
-    public Produto(Long id, String nome, String descricao, Double preco, Categoria categoria) {
+    public Produto(Long id, String nome, String descricao, Double preco,String urlImagem, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.urlImagem = urlImagem;
         this.categoria = categoria;
 
     }
@@ -45,6 +50,7 @@ public class Produto {
         this.nome = produtoDTO.getNome();
         this.preco = produtoDTO.getPreco();
         this.descricao = produtoDTO.getDescricao();
+        this.urlImagem = produtoDTO.getUrlImagem();
         this.categoria = produtoDTO.getCategoria();
     }
 
@@ -53,6 +59,7 @@ public class Produto {
         setNome(produtoCreateDTO.getNome());
         setDescricao(produtoCreateDTO.getDescricao());
         setPreco(produtoCreateDTO.getPreco());
+        setUrlImagem(produtoCreateDTO.getUrlImagem());
         this.categoria = categoria;
     }
 
@@ -64,6 +71,13 @@ public class Produto {
         this.id = id;
     }
 
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
+    }
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;

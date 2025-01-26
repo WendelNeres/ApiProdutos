@@ -3,14 +3,14 @@ package com.github.wendel.produtosapi.api.dto;
 
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import lombok.Data;
-
-
+import org.hibernate.type.descriptor.java.BlobJavaType;
 
 
 public class ProdutoCreateDTO {
     String nome;
     String descricao;
     Double preco;
+    String urlImagem;
     String   categoria;
 
 
@@ -24,6 +24,14 @@ public class ProdutoCreateDTO {
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
     public String getNome() {

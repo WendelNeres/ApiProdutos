@@ -2,8 +2,7 @@ package com.github.wendel.produtosapi.api.dto;
 
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.domain.entities.Produto;
-
-
+import org.hibernate.type.descriptor.java.BlobJavaType;
 
 
 public class ProdutoDTO {
@@ -11,6 +10,8 @@ public class ProdutoDTO {
     String nome;
     String descricao;
     Double preco;
+
+    String urlImagem;
     Categoria  categoria;
 
 
@@ -23,6 +24,7 @@ public class ProdutoDTO {
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.preco = produto.getPreco();
+        this.urlImagem = produto.getUrlImagem();
         this.categoria = produto.getCategoria();
     }
 
@@ -47,6 +49,14 @@ public class ProdutoDTO {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public String getUrlImagem() {
+        return urlImagem;
+    }
+
+    public void setUrlImagem(String urlImagem) {
+        this.urlImagem = urlImagem;
     }
 
     public void setDescricao(String descricao) {

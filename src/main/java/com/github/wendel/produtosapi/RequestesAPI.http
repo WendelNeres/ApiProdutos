@@ -6,7 +6,7 @@ POST http://localhost:8080/categoria
 Content-Type: application/json
 
 {
-  "nome": "CALCAS"
+  "nome": "CAMISAS"
 }
 
 ###
@@ -18,10 +18,11 @@ POST http://localhost:8080/produtos
 Content-Type: application/json
 
 {
-  "nome":"CALÇA PRETA",
-  "descricao": "CALÇA TAMANHO 40",
+  "nome":"CAMISA BRANCA",
+  "descricao": "CAMISA TAMANHO M",
   "preco" : 160,
-  "categoria": "CALCAS"
+  "urlImagem": "https://dw0jruhdg6fis.cloudfront.net/producao/24866653/G/camisa-branca-malha-pp-100--poliester-.webp",
+  "categoria": "CAMISAS"
 
 }
 
