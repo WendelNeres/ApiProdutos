@@ -5,6 +5,7 @@ import com.github.wendel.produtosapi.api.dto.ProdutoCreateDTO;
 import com.github.wendel.produtosapi.api.dto.ProdutoDTO;
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.domain.entities.Produto;
+import com.github.wendel.produtosapi.repository.CategoriaRepository;
 import com.github.wendel.produtosapi.repository.ProdutosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,23 @@ import java.util.stream.Collectors;
 
 @Service
 public class ProdutoService {
-    @Autowired
+
     ProdutosRepository produtosRepository;
+    CategoriaRepository categoriaRepository;
+
+    @Autowired
+    public ProdutoService(ProdutosRepository produtosRepository, CategoriaRepository categoriaRepository){
+        this.produtosRepository=produtosRepository;
+        this.categoriaRepository = categoriaRepository;
+
+    }
+
 
 
     public ProdutoDTO save(ProdutoCreateDTO produtoCreateDTO) {
-        return new ProdutoDTO(produtosRepository.save(new Produto(produtoCreateDTO)));
+        Categoria categoriaNome = categoriaRepository.findByNome(produtoCreateDTO.getCategoria());
+        
+        return new ProdutoDTO(produtosRepository.save(new Produto(produtoCreateDTO, categoriaRepository.findByNome(produtoCreateDTO.getCategoria()))));
     }
 
     public List<ProdutoDTO> findAll(){
@@ -29,6 +41,7 @@ public class ProdutoService {
                 .collect(Collectors.toList());
     }
 
+    /**
     public List<ProdutoDTO> findProdutoByCategoria_Nome(String nome){
 
 
@@ -38,4 +51,5 @@ public class ProdutoService {
         return null;
 
     }
+     */
 }

@@ -8,7 +8,6 @@ import java.util.Objects;
 
 
 @Entity
-
 @Table(name = "tb_produtos")
 public class Produto {
     @Id
@@ -23,26 +22,21 @@ public class Produto {
     private Double preco;
 
     @ManyToOne()
-    @JoinColumn(name = "id_categoria")
+    @JoinColumn(name = "categoria_nome", referencedColumnName = "nome")
     private Categoria categoria;
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 
     public Produto(){
 
     }
 
-    public Produto(Long id, String nome, String descricao, Double preco) {
+    public Produto(Long id, String nome, String descricao, Double preco, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.categoria = categoria;
 
     }
 
@@ -51,12 +45,15 @@ public class Produto {
         this.nome = produtoDTO.getNome();
         this.preco = produtoDTO.getPreco();
         this.descricao = produtoDTO.getDescricao();
+        this.categoria = produtoDTO.getCategoria();
     }
 
-    public Produto(ProdutoCreateDTO produtoCreateDTO){
-        this.nome= produtoCreateDTO.getNome();
-        this.descricao = produtoCreateDTO.getDescricao();
-        this.preco  = produtoCreateDTO.getPreco();
+
+    public Produto(ProdutoCreateDTO produtoCreateDTO, Categoria categoria){
+        setNome(produtoCreateDTO.getNome());
+        setDescricao(produtoCreateDTO.getDescricao());
+        setPreco(produtoCreateDTO.getPreco());
+        this.categoria = categoria;
     }
 
     public Long getId() {
@@ -66,6 +63,16 @@ public class Produto {
     public void setId(Long id) {
         this.id = id;
     }
+
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
 
     public String getNome() {
         return nome;

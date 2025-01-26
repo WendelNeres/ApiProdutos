@@ -1,7 +1,7 @@
 package com.github.wendel.produtosapi.api.dto;
 
+import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.domain.entities.Produto;
-import lombok.Data;
 
 
 
@@ -11,6 +11,7 @@ public class ProdutoDTO {
     String nome;
     String descricao;
     Double preco;
+    Categoria  categoria;
 
 
     public ProdutoDTO(){
@@ -22,6 +23,7 @@ public class ProdutoDTO {
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.preco = produto.getPreco();
+        this.categoria = produto.getCategoria();
     }
 
     public long getId() {
@@ -54,5 +56,13 @@ public class ProdutoDTO {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

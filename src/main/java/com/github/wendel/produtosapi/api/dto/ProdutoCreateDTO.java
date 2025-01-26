@@ -1,6 +1,7 @@
 package com.github.wendel.produtosapi.api.dto;
 
 
+import com.github.wendel.produtosapi.domain.entities.Categoria;
 import lombok.Data;
 
 
@@ -10,10 +11,19 @@ public class ProdutoCreateDTO {
     String nome;
     String descricao;
     Double preco;
+    String   categoria;
 
 
     public ProdutoCreateDTO(){
 
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getNome() {

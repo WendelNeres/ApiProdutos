@@ -1,3 +1,11 @@
+POST http://localhost:8080/categoria
+Content-Type: application/json
+
+{
+  "nome": "CALCA"
+}
+
+###
 GET http://localhost:8080/produtos
 Accept: application/json
 
@@ -8,8 +16,14 @@ Content-Type: application/json
 {
   "nome":"BONÉ",
   "descricao": "BONÉ BRANCO",
-  "preco" : 10
+  "preco" : 10,
+  "categoria": "CALCA"
+
 }
+
+
+
+
 
 
 

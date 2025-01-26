@@ -18,7 +18,7 @@ public class Categoria {
   @Column(nullable = false, unique = true)
   private String nome;
 
-  @OneToMany(mappedBy = "produto")
+  @OneToMany(mappedBy = "categoria")
   private List<Produto> produto;
 
 
@@ -27,10 +27,8 @@ public class Categoria {
 
   }
 
-  public Categoria(Long id, String nome, List<Produto> produto) {
-    this.id = id;
+  public Categoria(String nome) {
     this.nome = nome;
-    this.produto = produto;
   }
 
   public Categoria(CategoriaCreateDTO categoriaCreateDTO){
