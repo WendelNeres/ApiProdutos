@@ -4,8 +4,8 @@ import com.github.wendel.produtosapi.domain.entities.Categoria;
 
 public class CategoriaDTO {
 
-    long id;
-    String nome;
+    private long id;
+    private String nome;
 
     public CategoriaDTO() {
     }

@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @Service
 public class ProdutoService {
 
-    ProdutosRepository produtosRepository;
-    CategoriaRepository categoriaRepository;
+    private final ProdutosRepository produtosRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Autowired
     public ProdutoService(ProdutosRepository produtosRepository, CategoriaRepository categoriaRepository){

@@ -6,13 +6,12 @@ import org.hibernate.type.descriptor.java.BlobJavaType;
 
 
 public class ProdutoDTO {
-    long id;
-    String nome;
-    String descricao;
-    Double preco;
-
-    String urlImagem;
-    Categoria  categoria;
+    private long id;
+    private String nome;
+    private String descricao;
+    private Double preco;
+    private String urlImagem;
+    private Categoria  categoria;
 
 
     public ProdutoDTO(){

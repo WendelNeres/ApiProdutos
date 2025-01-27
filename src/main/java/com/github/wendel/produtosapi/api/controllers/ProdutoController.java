@@ -5,6 +5,7 @@ import com.github.wendel.produtosapi.api.dto.ProdutoCreateDTO;
 import com.github.wendel.produtosapi.api.dto.ProdutoDTO;
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.domain.services.ProdutoService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +15,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
+@AllArgsConstructor
 public class ProdutoController {
     @Autowired
-    ProdutoService service;
+    private final ProdutoService service;
 
 
 

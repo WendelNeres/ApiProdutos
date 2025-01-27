@@ -8,11 +8,11 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 public class UsuarioDTO {
-    long id;
-    String email;
-    String userName;
-    String senha;
-    String nivelDeAcesso;
+    private long id;
+    private String email;
+    private String userName;
+    private String senha;
+    private String nivelDeAcesso;
 
     public UsuarioDTO(){
 

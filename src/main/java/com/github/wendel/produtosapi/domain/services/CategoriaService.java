@@ -6,13 +6,15 @@ import com.github.wendel.produtosapi.api.dto.CategoriaDTO;
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CategoriaService {
     @Autowired
-    CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Transactional
     public CategoriaDTO save(CategoriaCreateDTO categoriaCreateDTO){
