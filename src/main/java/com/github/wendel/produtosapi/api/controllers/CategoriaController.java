@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/categoria")
-@AllArgsConstructor
 public class CategoriaController {
     @Autowired
-    private final CategoriaService categoriaService;
+    private CategoriaService categoriaService;
+
+    public CategoriaController(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
+    }
 
     @PostMapping
     public ResponseEntity<CategoriaDTO> save(@RequestBody CategoriaCreateDTO categoriaCreateDTO){

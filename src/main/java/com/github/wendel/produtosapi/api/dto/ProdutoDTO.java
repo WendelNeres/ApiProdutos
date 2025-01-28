@@ -2,9 +2,14 @@ package com.github.wendel.produtosapi.api.dto;
 
 import com.github.wendel.produtosapi.domain.entities.Categoria;
 import com.github.wendel.produtosapi.domain.entities.Produto;
-import org.hibernate.type.descriptor.java.BlobJavaType;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Objects;
 
 
+@Setter
+@Getter
 public class ProdutoDTO {
     private long id;
     private String nome;
@@ -28,53 +33,15 @@ public class ProdutoDTO {
     }
 
 
-
-
-    public long getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ProdutoDTO that)) return false;
+        return getId() == that.getId() && Objects.equals(getNome(), that.getNome()) && Objects.equals(getDescricao(), that.getDescricao()) && Objects.equals(getPreco(), that.getPreco()) && Objects.equals(getUrlImagem(), that.getUrlImagem()) && Objects.equals(getCategoria(), that.getCategoria());
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public String getUrlImagem() {
-        return urlImagem;
-    }
-
-    public void setUrlImagem(String urlImagem) {
-        this.urlImagem = urlImagem;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getDescricao(), getPreco(), getUrlImagem(), getCategoria());
     }
 }

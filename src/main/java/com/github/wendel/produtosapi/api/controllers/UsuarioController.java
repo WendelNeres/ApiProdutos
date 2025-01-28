@@ -9,12 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@AllArgsConstructor
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
-    private final UsuarioService usuarioService;
+    private  UsuarioService usuarioService;
 
     @PostMapping
     public ResponseEntity<UsuarioDTO> save (@RequestBody UsuarioCreateDTO usuarioCreateDTO){

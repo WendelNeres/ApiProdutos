@@ -15,14 +15,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
-@AllArgsConstructor
 public class ProdutoController {
     @Autowired
-    private final ProdutoService service;
+    private  ProdutoService service;
 
 
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<ProdutoDTO>save(@RequestBody ProdutoCreateDTO produtoCreateDTO){
         return new ResponseEntity<ProdutoDTO>(service.save(produtoCreateDTO), HttpStatus.CREATED);
     }

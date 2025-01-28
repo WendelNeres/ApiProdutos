@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "tb_usuarios")
 @Getter
@@ -47,5 +49,15 @@ public class Usuario {
         this.nivelDeAcesso = usuarioCreateDTO.getNivelDeAcesso();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario usuario)) return false;
+        return Objects.equals(getId(), usuario.getId()) && Objects.equals(getEmail(), usuario.getEmail()) && Objects.equals(getUserName(), usuario.getUserName()) && Objects.equals(getSenha(), usuario.getSenha()) && Objects.equals(getNivelDeAcesso(), usuario.getNivelDeAcesso());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getEmail(), getUserName(), getSenha(), getNivelDeAcesso());
+    }
 }

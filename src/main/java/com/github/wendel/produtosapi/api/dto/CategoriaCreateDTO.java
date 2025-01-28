@@ -1,7 +1,11 @@
 package com.github.wendel.produtosapi.api.dto;
 
-import com.github.wendel.produtosapi.domain.entities.Categoria;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class CategoriaCreateDTO {
     String nome;
 
@@ -9,13 +13,4 @@ public class CategoriaCreateDTO {
 
     }
 
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 }
