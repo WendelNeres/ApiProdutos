@@ -28,13 +28,13 @@ Projeto desenvolvido em Java com Spring Boot para gerenciar um catálogo de prod
 
 ## 1. Clone o repositório
 
-bash
+```bash
 git clone https://github.com/WendelNeres/ApiProdutos.git
 cd ApiProdutos
-
+```
 ---
 
-##🧠 Aprendizados
+## 🧠 Aprendizados
 - 🔹 Construção de API RESTful com Spring Boot  
 - 🔹 Manipulação de banco de dados com Spring Data JPA  
 - 🔹 Configuração e uso do banco em memória H2 para testes
@@ -43,6 +43,6 @@ cd ApiProdutos
 
 ---
   
-###📄 Licença
+### 📄 Licença
 Este projeto está sob a licença MIT – fique à vontade para usar, estudar e modificar.
 
