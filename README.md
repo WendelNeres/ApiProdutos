@@ -34,18 +34,6 @@ cd ApiProdutos
 
 ---
 
-##🔗 Endpoints Principais
-
-| Método | Rota             | Descrição             |
-| ------ | ---------------- | --------------------- |
-| GET    | `/products`      | Listar todos produtos |
-| GET    | `/products/{id}` | Buscar produto por ID |
-| POST   | `/products`      | Criar produto         |
-| PUT    | `/products/{id}` | Atualizar produto     |
-| DELETE | `/products/{id}` | Excluir produto       |
-
----
-
 ##🧠 Aprendizados
 - 🔹 Construção de API RESTful com Spring Boot  
 - 🔹 Manipulação de banco de dados com Spring Data JPA  
